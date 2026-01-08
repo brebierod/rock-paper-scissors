@@ -22,3 +22,5 @@
 function getComputerChoice() {
     return
 } 
+
+console.log("Hello World!");
