@@ -1,8 +1,8 @@
 //Prompt asks user to type rock, paper, scissors.
-let userNumChoice = +prompt("Type in 1 for rock, 2 for paper, or 3 for scissors:");
 //Declare user choice.
 let userRealChoice = null;
-
+function getUserChoice() {
+let userNumChoice = +prompt("Type in 1 for rock, 2 for paper, or 3 for scissors:");
 if (userNumChoice === 1) {
     userRealChoice = "Rock";
     alert("You chose rock!");
@@ -13,8 +13,9 @@ if (userNumChoice === 1) {
     userRealChoice = "Scissors";
     alert("You chose scissors!")
 } else alert("That's not a valid answer. Try again")
+}
 
-// console.log(userNumChoice);
+console.log(getUserChoice());
 console.log(`User chose ${userRealChoice}`);
 
 //Computer randomly chooses rock, paper scissors.
