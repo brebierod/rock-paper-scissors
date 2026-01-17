@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html {
+    height: 100%;
+}
+
+body {
+    max-width: 900px;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(222, 245, 245);
+}
+
+div.instructions {
+    width: 100%;
+    text-align: center;
+    color: rgb(46, 74, 129);
+}
+
+div.instructions p {
+    margin: 12px auto;
+    width: 70%;
+}
+
+#choices, #scores {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+figure {
+    border: 3px rgb(60, 97, 170) solid;
+    background-color: azure;
+    margin: 24px 12px;
+    border-radius: 10px;
+}
+
+figure img{
+    height: 150px;
+    width: 150px;
+    padding: 4px;
+}
+
+figcaption {
+    color:  rgb(46, 74, 129);
+    text-align: center;
+    font-weight: 700;
+}
+
+#scores h3 {
+    margin: 24px 8px;
+    font-weight: 900;
+    font-size: 24px;
+}
