@@ -58,6 +58,7 @@ let userScore = 0;
 function playRound(user, computer) {
     getComputerChoice();
     if (user === computer) {
+        
         alert(`Draw! Computer also chose ${user}.`)
         alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
     }
