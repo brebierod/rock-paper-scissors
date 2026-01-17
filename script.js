@@ -16,14 +16,23 @@ userScoreTxt.textContent = `User Score: ${userScore}`;
 const narration = document.getElementById("narration");
 narration.textContent = "";
 
+
+function updateScores() {
+    userScoreTxt.textContent = `User Score: ${userScore}`;
+    computerScoreTxt.textContent = `ComputerScore: ${computerScore}`;
+}
+
 //Creates and converts computer numerical answer to rock, paper, scissors, and sends to playRound
 function getComputerChoice() {
     let computerNumChoice = Math.floor(Math.random() * 3);
     if (computerNumChoice == 0) {
+        narration.textContent = "Computer chose Rock.";
         return computerChoice = "Rock";
     } else if (computerNumChoice == 1) {
+        narration.textContent = "Computer chose Paper.";
         return computerChoice = "Paper";
     } else {
+        narration.textContent = "Computer chose Scissors.";
         return computerChoice = "Scissors";
     }
 }
@@ -34,34 +43,32 @@ function getComputerChoice() {
 function playRound(user, computer) {
     getComputerChoice();
     if (user === computer) {
-
-        alert(`Draw! Computer also chose ${user}.`)
-        alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
+        narration.textContent = `Computer also chose ${user}! Draw!`;
     }
     else if (user === "Rock" && computer === "Paper") {
-        alert(`Computer chose Paper. Paper beats Rock: You lose!`)
+        narration.textContent = `Computer chose Paper. Paper beats Rock: You lose!`;
         ++computerScore
-        alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
+        updateScores();
     } else if (user === "Rock" && computer === "Scissors") {
-        alert(`Computer chose Scissors. Rock beats Scissors: You win`)
+        narration.textContent = `Computer chose Scissors. Rock beats Scissors: You win`;
         ++userScore
-        alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
+        updateScores();
     } else if (user === "Paper" && computer === "Scissors") {
-        alert("Computer chose Scissors. Scissors beats Paper: You lose!")
+        narration.textContent = "Computer chose Scissors. Scissors beats Paper: You lose!"
         ++computerScore
-        alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
+        updateScores();
     } else if (user === "Paper" && computer === "Rock") {
-        alert(`Computer chose Rock. Paper beats Rock: You win!`)
+        narration.textContent = `Computer chose Rock. Paper beats Rock: You win!`;
         ++userScore
-        alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
+        updateScores();
     } else if (user === "Scissors" && computer === "Rock") {
-        alert("Computer chose Rock. Rock beats Scissors: You lose!")
+        narration.textContent = "Computer chose Rock. Rock beats Scissors: You lose!";
         ++computerScore
-        alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
+        updateScores();
     } else if (user === "Scissors" && computer === "Paper") {
-        alert(`Computer chose Paper. Scissors beats Paper: You win!`)
+        narration.textContent = `Computer chose Paper. Scissors beats Paper: You win!`;
         ++userScore
-        alert(`Current score is You: ${userScore} Computer: ${computerScore}`);
+        updateScores();
     }
 }
 
