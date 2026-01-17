@@ -1,43 +1,22 @@
-//Converts numerical answer to rock, paper, scissors, and sends to playRound
-// function getUserChoice() {
-//     let userNumChoice = +prompt("Type in 1 for rock, 2 for paper, or 3 for scissors:");
-//     if (userNumChoice === 1) {
-//         alert("You chose rock!");
-//         return userRealChoice = "Rock";
-//     } else if (userNumChoice === 2) {
-//         alert("You chose paper!")
-//         return userRealChoice = "Paper";
-//     } else if (userNumChoice === 3) {
-//         alert("You chose scissors!")
-//         return userRealChoice = "Scissors";
-//     } else alert("That's not a valid answer. Try again")
-//     getUserChoice();
-// }
+
 let userRealChoice;
+
+//Declares scores
+let computerScore = 0;
+let userScore = 0;
 
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 
-rock.addEventListener("click", (e) => {
-    const userRealChoice = "Rock";
-    alert("You chose rock!");
-    playRound("Rock", getComputerChoice());
-})
+const computerScoreTxt = document.getElementById("computerScore");
+computerScoreTxt.textContent = `ComputerScore: ${computerScore}`;
+const userScoreTxt = document.getElementById("userScore");
+userScoreTxt.textContent = `User Score: ${userScore}`;
+const narration = document.getElementById("narration");
+narration.textContent = "";
 
-paper.addEventListener("click", (e) => {
-    const userRealChoice = "Paper";
-    alert("You chose paper!");
-    playRound("Paper", getComputerChoice());
-})
-
-scissors.addEventListener("click", (e) => {
-    const userRealChoice = "Scissors";
-    alert("You chose scissors!");
-    playRound("Scissors", getComputerChoice());
-})
-
-//Creates and convers computer numerical answer to rock, paper, scissors, and sends to playRound
+//Creates and converts computer numerical answer to rock, paper, scissors, and sends to playRound
 function getComputerChoice() {
     let computerNumChoice = Math.floor(Math.random() * 3);
     if (computerNumChoice == 0) {
@@ -49,16 +28,13 @@ function getComputerChoice() {
     }
 }
 
-//Declares scores
-let computerScore = 0;
-let userScore = 0;
 
 
 //Determines how choices will be alerted and scored
 function playRound(user, computer) {
     getComputerChoice();
     if (user === computer) {
-        
+
         alert(`Draw! Computer also chose ${user}.`)
         alert(`Current score is You: ${userScore} Computer: ${computerScore}`)
     }
@@ -102,5 +78,26 @@ function playGame() {
         playGame();
     }
 }
+
+
+
+
+rock.addEventListener("click", (e) => {
+    const userRealChoice = "Rock";
+    alert("You chose rock!");
+    playRound("Rock", getComputerChoice());
+})
+
+paper.addEventListener("click", (e) => {
+    const userRealChoice = "Paper";
+    alert("You chose paper!");
+    playRound("Paper", getComputerChoice());
+})
+
+scissors.addEventListener("click", (e) => {
+    const userRealChoice = "Scissors";
+    alert("You chose scissors!");
+    playRound("Scissors", getComputerChoice());
+})
 
 // console.log(playGame());
