@@ -82,11 +82,15 @@ function playRound(user, computer) {
 //Runs userChoice and computerChoice and checks to see if a player won.
 function checkScore() {
     if (userScore == 5) {
-               narration.style.color = "green";
+        narration.style.color = "green";
+        narration.style.fontSize = "48px";
         narration.textContent = `YOU WON!`;
+        setTimeout(location.reload.bind(location), 1200);
     } else if (computerScore == 5) {
-         narration.style.color = "red";
+        narration.style.color = "red";
+        narration.style.fontSize = "48px";
         narration.textContent = `YOU LOSE!`;
+        setTimeout(location.reload.bind(location), 1200);
     }
 };
 
@@ -94,7 +98,7 @@ function checkScore() {
 rock.addEventListener("click", (e) => {
     const userRealChoice = "Rock";
     playRound("Rock", getComputerChoice());
-    // checkScore();
+    checkScore();
 });
 
 paper.addEventListener("click", (e) => {
