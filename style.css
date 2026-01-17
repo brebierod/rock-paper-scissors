@@ -5,6 +5,10 @@
 }
 html {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
@@ -60,9 +64,8 @@ figcaption {
 }
 
 #narration {
-    font-size: 48px;
+    font-size: 24px;
     margin: 8px auto;
     text-align: center;
     width: 100%;
-
 }

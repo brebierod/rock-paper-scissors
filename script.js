@@ -43,29 +43,36 @@ function getComputerChoice() {
 function playRound(user, computer) {
     getComputerChoice();
     if (user === computer) {
+        narration.style.color = "black";
         narration.textContent = `Computer also chose ${user}! Draw!`;
     }
     else if (user === "Rock" && computer === "Paper") {
+        narration.style.color = "red";
         narration.textContent = `Computer chose Paper. Paper beats Rock: You lose!`;
         ++computerScore
         updateScores();
     } else if (user === "Rock" && computer === "Scissors") {
+        narration.style.color = "green";
         narration.textContent = `Computer chose Scissors. Rock beats Scissors: You win`;
         ++userScore
         updateScores();
     } else if (user === "Paper" && computer === "Scissors") {
+        narration.style.color = "red";
         narration.textContent = "Computer chose Scissors. Scissors beats Paper: You lose!"
         ++computerScore
         updateScores();
     } else if (user === "Paper" && computer === "Rock") {
+        narration.style.color = "green";
         narration.textContent = `Computer chose Rock. Paper beats Rock: You win!`;
         ++userScore
         updateScores();
     } else if (user === "Scissors" && computer === "Rock") {
+        narration.style.color = "red";
         narration.textContent = "Computer chose Rock. Rock beats Scissors: You lose!";
         ++computerScore
         updateScores();
     } else if (user === "Scissors" && computer === "Paper") {
+        narration.style.color = "green";
         narration.textContent = `Computer chose Paper. Scissors beats Paper: You win!`;
         ++userScore
         updateScores();
@@ -73,38 +80,33 @@ function playRound(user, computer) {
 }
 
 //Runs userChoice and computerChoice and checks to see if a player won.
-function playGame() {
-    let userSelection = getUserChoice();
-    let computerSelection = getComputerChoice();
-    playRound(userSelection, computerSelection);
+function checkScore() {
     if (userScore == 5) {
-        alert(`You won! Score: ${userScore} to ${computerScore}`);
+               narration.style.color = "green";
+        narration.textContent = `YOU WON!`;
     } else if (computerScore == 5) {
-        alert(`Computer wins! Score: ${userScore} to ${computerScore}`);
-    } else {
-        playGame();
+         narration.style.color = "red";
+        narration.textContent = `YOU LOSE!`;
     }
-}
-
-
+};
 
 
 rock.addEventListener("click", (e) => {
     const userRealChoice = "Rock";
-    alert("You chose rock!");
     playRound("Rock", getComputerChoice());
-})
+    // checkScore();
+});
 
 paper.addEventListener("click", (e) => {
     const userRealChoice = "Paper";
-    alert("You chose paper!");
     playRound("Paper", getComputerChoice());
-})
+    checkScore();
+});
 
 scissors.addEventListener("click", (e) => {
     const userRealChoice = "Scissors";
-    alert("You chose scissors!");
     playRound("Scissors", getComputerChoice());
-})
+    checkScore();
+});
 
 // console.log(playGame());
